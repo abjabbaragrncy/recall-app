@@ -1,11 +1,5 @@
-import React from 'react';
-
 const page = () => {
-    return (
-        <div>
-            this is the shop page
-        </div>
-    );
+  return <div>this is the shop page nahid</div>;
 };
 
 export default page;
