@@ -1,5 +1,7 @@
-const page = () => {
-  return <div>this is the shop page nahid</div>;
-};
-
-export default page;
+export default function ShopPage() {
+  return (
+    <div>
+      <h1>Hello.</h1>
+    </div>
+  );
+}
