@@ -1,5 +1,5 @@
 "use client";
-import { MagnifyingGlass } from "@phosphor-icons/react";
+import { List, MagnifyingGlass, X } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -24,7 +24,7 @@ const Navbar = () => {
                 className="text-white text-2xl focus:outline-none"
                 aria-label="Toggle Menu"
               >
-                {isMenuOpen ? "✖" : "☰"}
+                {isMenuOpen ? <X size={24} /> : <List size={24} />}
               </button>
 
               {isMenuOpen && (
