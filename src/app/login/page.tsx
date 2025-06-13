@@ -3,7 +3,7 @@ import React from "react";
 
 export default function page() {
   return (
-    <section className="z-10">
+    <section className="z-10" >
       <div>
         <h2>Login to Your Account</h2>
         <p>Let’s login to your account to continue where you left.</p>
