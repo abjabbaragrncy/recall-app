@@ -1,15 +1,22 @@
-import { Search } from "lucide-react";
+"use client";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { roboto_flex } from "../font/Font.ts";
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const pathname = usePathname();
+
   return (
     <nav
       id="navbar"
       className="fixed top-0 left-0 w-full z-50 bg-Primary transition-shadow duration-300"
     >
-      <div className="mx-auto max-w-7xl px-3">
-        <nav className="flex flex-wrap items-center justify-between py-5">
+      <div className="mx-auto max-w-7xl sm:px-3 lg:px-0">
+        <nav className="flex flex-wrap items-center justify-between py-3">
           <div className="flex items-center space-x-3">
             <Image
               src="/assets/logo/LogoLight.png"
@@ -17,7 +24,10 @@ const Navbar = () => {
               height={32}
               alt="wellsnap"
             />
-            <a href="#" className="text-2xl font-bold text-white">
+            <a
+              href="#"
+              className={`text-2xl font-bold text-white ${roboto_flex.className}`}
+            >
               Recall
             </a>
           </div>
@@ -25,42 +35,54 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-6">
             <Link
               href="/"
-              className="text-white/70 px-3 py-2 hover:bg-white/10 hover:text-white hover:rounded-lg transition-all duration-400"
+              className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
+                pathname === "/about"
+                  ? "text-white bg-white/20"
+                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+              }`}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-white/70 px-3 py-2 hover:bg-white/10 hover:text-white hover:rounded-lg transition-all duration-400"
+              className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
+                pathname === "/about"
+                  ? "text-white bg-white/20"
+                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+              }`}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="text-white/70 px-3 py-2 hover:text-white hover:bg-white/10 hover:rounded-lg transition-all duration-400"
+              className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
+                pathname === "/contact"
+                  ? "text-white bg-white/20"
+                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+              }`}
             >
               Contact
             </Link>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="flex items-center space-x-2">
             <div>
-              <Search className="text-white" />
+              <MagnifyingGlass size={20} className="text-white" />
             </div>
             <button
               id="open-modal"
-              className="font-medium py-2 px-4 text-white rounded-xl text-sm ease-in-out hover:bg-white/10 transition-all duration-400 cursor-pointer"
+              className="hidden lg:block font-medium px-3.5 py-1 text-white rounded-xl text-sm  cursor-pointer"
             >
               Download App
             </button>
-            <button className="py-2 px-4 bg-white text-Primary hover:shadow-xl/20 rounded-lg text-sm font-medium cursor-pointer">
-              Get Started
+            <button className="py-1.5 px-3.5 bg-white text-Primary hover:shadow-xl/20 rounded-full text-sm font-medium cursor-pointer">
+              Login/Signup
             </button>
           </div>
 
           <div className="lg:hidden relative">
-            <button
-              id="menu-toggle"
+            <utton
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-white text-2xl focus:outline-none"
               aria-label="Toggle Menu"
             >
@@ -68,7 +90,7 @@ const Navbar = () => {
               <span id="close-icon" className="hidden">
                 ✖
               </span>
-            </button>
+            </utton>
 
             <ul
               id="mobile-menu"
