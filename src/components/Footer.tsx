@@ -18,9 +18,7 @@ const Footer = () => {
                 priority
                 decoding="async"
               />
-              <p
-                className={`text-[26px]  font-bold text-white ${roboto_flex.className}`}
-              >
+              <p className="text-[26px]  font-bold text-white">
                 Recall Products
               </p>
             </div>

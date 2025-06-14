@@ -1,8 +1,7 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
 
 export const metadata: Metadata = {
   title: "Recall",
@@ -21,7 +20,7 @@ export default function RootLayout({
           <Navbar />
         </header>
 
-        <main className="pt-24">{children}</main>
+        <main className="pt-12">{children}</main>
         <Footer />
       </body>
     </html>
