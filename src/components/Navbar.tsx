@@ -78,7 +78,7 @@ const Navbar = () => {
               />
               <a
                 href="#"
-                className="text-lg lg:text-2xl font-bold text-Inactive "
+                className={`text-lg lg:text-2xl font-bold text-Inactive ${roboto_flex.className}`}
               >
                 Recall
               </a>

@@ -1,6 +1,6 @@
+import { manrope } from "@/Font/font";
 import Image from "next/image";
 import Link from "next/link";
-import { manrope } from "../font/Font.ts";
 
 const Footer = () => {
   return (
@@ -18,7 +18,9 @@ const Footer = () => {
                 priority
                 decoding="async"
               />
-              <p className="text-[26px]  font-bold text-white ">
+              <p
+                className={`text-[26px]  font-bold text-white ${roboto_flex.className}`}
+              >
                 Recall Products
               </p>
             </div>
