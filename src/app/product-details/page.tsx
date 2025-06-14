@@ -3,7 +3,7 @@
 import { ArrowLeft, ArrowRight, ArrowRightIcon } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link.js";
-import { manrope } from "../../Font/Font.ts";
+import { manrope } from "../../Font/font.js";
 const Page = () => {
   const product = {
     name: "The Heroes Enchanted mushroom chips",

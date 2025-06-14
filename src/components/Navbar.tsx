@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { roboto_flex } from "../font/Font.ts";
+import { poppins } from "@/Font/font";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -79,7 +79,7 @@ const Navbar = () => {
               />
               <a
                 href="#"
-                className={`text-lg lg:text-2xl font-bold text-Inactive ${roboto_flex.className}`}
+                className={`text-lg lg:text-2xl font-bold text-Inactive ${poppins.className}`}
               >
                 Recall
               </a>

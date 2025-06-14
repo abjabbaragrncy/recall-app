@@ -2,6 +2,7 @@
 
 import Social from "@/components/Social";
 import { manrope, poppins } from "@/Font/font";
+
 import Link from "next/link";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";

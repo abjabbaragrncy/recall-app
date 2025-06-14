@@ -1,6 +1,6 @@
+import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
 import Link from "next/link";
-import { manrope, roboto_flex } from "../font/Font.ts";
 
 const Footer = () => {
   return (
@@ -19,7 +19,7 @@ const Footer = () => {
                 decoding="async"
               />
               <p
-                className={`text-[26px]  font-bold text-white ${roboto_flex.className}`}
+                className={`text-[26px]  font-bold text-white ${poppins.className}`}
               >
                 Recall Products
               </p>
