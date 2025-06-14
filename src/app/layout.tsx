@@ -3,13 +3,10 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-
 export const metadata: Metadata = {
   title: "Recall",
   description: "A modern, open-source, and self-hosted note-taking app.",
 };
-
-
 
 export default function RootLayout({
   children,
@@ -18,9 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      // className={`${geistSans.variable} ${geistMono.className} antialiased`}
-      >
+      <body>
         <header>
           <Navbar />
         </header>

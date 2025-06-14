@@ -3,11 +3,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
+@theme {
   --color-Primary: var(--primary-bg);
   --color-BlackBg: #131314;
   --color-Subtitle: #595f71;
   --color-Inactive: #8d94ab;
+  --color-borderColor: #babfcf;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
