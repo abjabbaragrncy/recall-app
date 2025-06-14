@@ -1,114 +1,136 @@
-import { Search } from "lucide-react";
+"use client";
+import { List, MagnifyingGlass, X } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { roboto_flex } from "../font/Font.ts";
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const pathname = usePathname();
+
   return (
     <nav
       id="navbar"
       className="fixed top-0 left-0 w-full z-50 bg-Primary transition-shadow duration-300"
     >
-      <div className="mx-auto max-w-7xl px-3">
-        <nav className="flex flex-wrap items-center justify-between py-5">
-          <div className="flex items-center space-x-3">
-            <Image
-              src="/assets/logo/LogoLight.png"
-              width={32}
-              height={32}
-              alt="wellsnap"
-            />
-            <a href="#" className="text-2xl font-bold text-white">
-              Recall
-            </a>
-          </div>
+      <div className="mx-auto max-w-7xl">
+        <nav className="flex flex-wrap items-center justify-between py-3 px-4 lg:px-0 ">
+          <div className="flex items-center gap-4">
+            <div className="lg:hidden relative">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-white text-2xl focus:outline-none"
+                aria-label="Toggle Menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <List size={24} />}
+              </button>
 
+              {isMenuOpen && (
+                <div className="fixed top-0 left-0 w-full h-screen bg-Background-Inverse z-[999] flex flex-col justify-between">
+                  {/* <div className="pt-20 flex flex-col justify-start items-center gap-6">
+                  <Link
+                    href="/"
+                    className="text-Text-Default text-lg font-medium font-['Poppins']"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="text-Text-Default text-lg font-medium font-['Poppins']"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    About
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="text-Text-Default text-lg font-medium font-['Poppins']"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Contact
+                  </Link>
+                  <div className="mt-6 border-b border-Border-Accent px-4 py-2">
+                    <span className="text-Text-Accent text-sm font-medium font-['Poppins']">
+                      Download App
+                    </span>
+                  </div>
+                </div>
+
+                <div className="w-full p-4 border-t border-Border-Mild text-center">
+                  <button
+                    className="w-full py-3 bg-white text-Primary font-medium rounded-xl text-base"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Close Menu
+                  </button>
+                </div> */}
+                </div>
+              )}
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <Image
+                src="/assets/logo/LogoLight.png"
+                width={32}
+                height={32}
+                alt="wellsnap"
+              />
+              <a
+                href="#"
+                className={`text-lg lg:text-2xl font-bold text-Inactive ${roboto_flex.className}`}
+              >
+                Recall
+              </a>
+            </div>
+          </div>
           <div className="hidden lg:flex items-center space-x-6">
             <Link
               href="/"
-              className="text-white/70 px-3 py-2 hover:bg-white/10 hover:text-white hover:rounded-lg transition-all duration-400"
+              className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
+                pathname === "/"
+                  ? "text-white bg-white/20"
+                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+              }`}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-white/70 px-3 py-2 hover:bg-white/10 hover:text-white hover:rounded-lg transition-all duration-400"
+              className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
+                pathname === "/about"
+                  ? "text-white bg-white/20"
+                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+              }`}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="text-white/70 px-3 py-2 hover:text-white hover:bg-white/10 hover:rounded-lg transition-all duration-400"
+              className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
+                pathname === "/contact"
+                  ? "text-white bg-white/20"
+                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+              }`}
             >
               Contact
             </Link>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="flex items-center lg:space-x-2 space-x-3">
             <div>
-              <Search className="text-white" />
+              <MagnifyingGlass size={20} className="text-white" />
             </div>
             <button
               id="open-modal"
-              className="font-medium py-2 px-4 text-white rounded-xl text-sm ease-in-out hover:bg-white/10 transition-all duration-400 cursor-pointer"
+              className="hidden lg:block font-medium px-3.5 py-1 text-white rounded-xl text-sm  cursor-pointer"
             >
               Download App
             </button>
-            <button className="py-2 px-4 bg-white text-Primary hover:shadow-xl/20 rounded-lg text-sm font-medium cursor-pointer">
-              Get Started
+            <button className="py-1.5 px-3.5 bg-white text-Primary hover:shadow-xl/20 rounded-full text-sm font-medium cursor-pointer">
+              Login/Signup
             </button>
-          </div>
-
-          <div className="lg:hidden relative">
-            <button
-              id="menu-toggle"
-              className="text-white text-2xl focus:outline-none"
-              aria-label="Toggle Menu"
-            >
-              <span id="menu-icon">☰</span>
-              <span id="close-icon" className="hidden">
-                ✖
-              </span>
-            </button>
-
-            <ul
-              id="mobile-menu"
-              className="hidden absolute right-0 mt-3 w-52 bg-white text-white/70 shadow-lg rounded-lg z-10 p-2 space-y-1 transition-all duration-300"
-            >
-              <li>
-                <a href="#about" className="block px-4 py-2 hover:bg-gray-100">
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#features"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="block px-4 py-2 hover:bg-gray-100">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Contact
-                </a>
-              </li>
-              <li className="mt-2 space-y-2">
-                <button className="font-medium py-2 px-4 text-white rounded-xl border border-white text-sm ease-in-out hover:bg-white/10 transition-all duration-400">
-                  Watch Demo
-                </button>
-                <button className="w-full text-left py-2 px-4 bg-Primary text-white hover:bg-indigo-800 rounded-xl mt-1 font-medium">
-                  Download App
-                </button>
-              </li>
-            </ul>
           </div>
         </nav>
       </div>
