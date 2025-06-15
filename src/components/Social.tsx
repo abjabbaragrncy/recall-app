@@ -1,3 +1,4 @@
+import { doSocialLogin } from "@/actions";
 import { manrope, poppins } from "@/Font/font";
 import React from "react";
 import { FaApple } from "react-icons/fa";
@@ -15,8 +16,16 @@ export default function Social() {
         </span>
         <span className="flex-grow bg-[#BABFCF] rounded h-[1px]"></span>
       </h3>
-      <div className="grid grid-cols-2 justify-center items-center gap-3">
-        <button className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-4xl border border-[#BABFCF]">
+      <form
+        action={doSocialLogin}
+        className="grid grid-cols-2 justify-center items-center gap-3"
+      >
+        <button
+          type="submit"
+          name="action"
+          value="google"
+          className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-4xl border border-[#BABFCF]"
+        >
           <FcGoogle />
           <span
             className={`${poppins.className} text-[#595F71] font-medium leading-5 text-sm `}
@@ -24,7 +33,12 @@ export default function Social() {
             Google
           </span>
         </button>
-        <button className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-4xl border border-[#BABFCF]">
+        <button
+          type="submit"
+          name="action"
+          value="apple"
+          className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-4xl border border-[#BABFCF]"
+        >
           <FaApple />
           <span
             className={`${poppins.className} text-[#595F71] font-medium leading-5 text-sm `}
@@ -32,7 +46,7 @@ export default function Social() {
             Apple
           </span>
         </button>
-      </div>
+      </form>
     </div>
   );
 }
