@@ -1,4 +1,4 @@
-import { manrope, poppins } from "@/Font/font";
+import { manrope } from "@/Font/font";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,9 +18,7 @@ const Footer = () => {
                 priority
                 decoding="async"
               />
-              <p
-                className={`text-[26px]  font-bold text-white ${poppins.className}`}
-              >
+              <p className="text-[26px]  font-bold text-white">
                 Recall Products
               </p>
             </div>
