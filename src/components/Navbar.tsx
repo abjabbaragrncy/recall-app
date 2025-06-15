@@ -3,6 +3,7 @@ import { List, MagnifyingGlass, X } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { useEffect, useState } from "react";
 import { poppins } from "@/Font/font";
 import { FaChevronDown } from "react-icons/fa";
@@ -100,9 +101,10 @@ const Navbar = () => {
                 height={32}
                 alt="wellsnap"
               />
-              <Link
+             <Link
                 href="/"
                 className={`text-lg lg:text-2xl font-bold text-Inactive ${poppins.className}`}
+
               >
                 Recall
               </Link>
