@@ -3,12 +3,35 @@ import { List, MagnifyingGlass, X } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { poppins } from "@/Font/font";
+import { FaChevronDown } from "react-icons/fa";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@radix-ui/react-popover";
+import { CiLogin } from "react-icons/ci";
+import { doLogout } from "@/actions";
+import { SessionDetails } from "@/session/sessionDetails";
+interface User {
+  name: string;
+  email: string;
+  image: string;
+}
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const pathname = usePathname();
+
+  const [user, setUser] = useState<User | null | undefined>(null);
+  useEffect(() => {
+    async function fetchUser() {
+      const res = await SessionDetails();
+      setUser(res);
+    }
+    fetchUser();
+  }, []);
 
   return (
     <nav
@@ -77,12 +100,12 @@ const Navbar = () => {
                 height={32}
                 alt="wellsnap"
               />
-              <a
-                href="#"
+              <Link
+                href="/"
                 className={`text-lg lg:text-2xl font-bold text-Inactive ${poppins.className}`}
               >
                 Recall
-              </a>
+              </Link>
             </div>
           </div>
           <div className="hidden lg:flex items-center space-x-6">
@@ -128,9 +151,72 @@ const Navbar = () => {
             >
               Download App
             </button>
-            <button className="py-1.5 px-3.5 bg-white text-Primary hover:shadow-xl/20 rounded-full text-sm font-medium cursor-pointer">
-              Login/Signup
-            </button>
+            {user ? (
+              <div className="flex items-center gap-1.5 p-[5px] border border-white rounded-full">
+                <Image
+                  // src={"/assets/image/rectangle 6.png"}
+                  src={user?.image}
+                  height={24}
+                  width={24}
+                  alt="an user image"
+                  className="rounded-full"
+                />
+                <p className="text-white font-poppins text-sm font-medium leading-5">
+                  {user?.name}
+                  {/* user */}
+                </p>
+
+                <Popover>
+                  <PopoverTrigger>
+                    <FaChevronDown className="text-white" />
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <div className="bg-white p-5 rounded-xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.15)]">
+                      <div className="flex items-center gap-3">
+                        <Image
+                          // src={"/assets/image/rectangle 6.png"}
+                          src={user?.image}
+                          height={34}
+                          width={34}
+                          alt="an user image"
+                          className="rounded-full"
+                        />
+                        <div>
+                          <h1
+                            className={`${poppins.className} text-sm font-medium leading-5 text-BlackBg `}
+                          >
+                            {user?.name}
+                            {/* User */}
+                          </h1>
+
+                          <p
+                            className={`${poppins.className} text-[13px] leading-5 text-TextSubtle`}
+                          >
+                            {user?.email}
+                            {/* user@gmail.com */}
+                          </p>
+                        </div>
+                      </div>
+                      <form action={doLogout}>
+                        <button
+                          type="submit"
+                          className={`${poppins.className} flex items-center justify-center gap-2 text-[13px] text-BlackBg border border-borderColor mt-4 font-medium leading-5 rounded-4xl px-4 py-1.5 w-full`}
+                        >
+                          <CiLogin className="font-bold text-sm text-BlackBg" />
+                          <span>Log Out</span>
+                        </button>
+                      </form>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
+            ) : (
+              <Link href={"/login"}>
+                <button className="py-1.5 px-3.5 bg-white text-Primary hover:shadow-xl/20 rounded-full text-sm font-medium cursor-pointer">
+                  Login/Signup
+                </button>
+              </Link>
+            )}
           </div>
         </nav>
       </div>
