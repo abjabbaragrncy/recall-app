@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-
 export const metadata: Metadata = {
   title: "Recall",
   description: "A modern, open-source, and self-hosted note-taking app.",
@@ -21,7 +20,7 @@ export default function RootLayout({
           <Navbar />
         </header>
 
-        <main className="pt-24">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
