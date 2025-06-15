@@ -70,11 +70,22 @@ export default function LoginPage() {
               Forgot Password?
             </span>
           </Link>
-          <input
-            type="submit"
-            value="Login"
-            className={`${poppins.className} mt-4 font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
-          />
+          <div className="space-y-3">
+            <input
+              type="submit"
+              value="Login"
+              className={`${poppins.className} mt-4 font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
+            />
+
+            <h3
+              className={`${poppins.className} text-sm font-medium leading-5 text-center`}
+            >
+              <span className="text-TextInactive">New here?</span>
+              <Link className="text-[#425BD8] underline" href={"/signUp"}>
+                Create Account
+              </Link>
+            </h3>
+          </div>
         </form>
         <Social />
       </div>
