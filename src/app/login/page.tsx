@@ -23,9 +23,9 @@ export default function LoginPage() {
         backgroundSize: "100% 100%",
         objectFit: "cover",
       }}
-      className="flex flex-col items-center justify-evenly gap-20 pt-20 pb-10 min-h-[100vh]"
+      className="flex flex-col items-center justify-evenly gap-20 pt-8 pb-10 min-h-[100vh]"
     >
-      <div className="bg-white p-10 rounded-xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.15)] space-y-10">
+      <div className="w-[36%] mt-20 bg-white p-10 rounded-xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.15)] space-y-10">
         <div className="space-y-1.5 text-center">
           <h2
             className={`font-semibold text-xl leading-8 text-[#131314] ${poppins.className}`}
@@ -48,7 +48,7 @@ export default function LoginPage() {
             <input
               type="email"
               name="email"
-              id=""
+              required
               placeholder="ex: johndoe@gmail.com"
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />
@@ -63,7 +63,7 @@ export default function LoginPage() {
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              id=""
+              required
               placeholder="*************"
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />
@@ -72,7 +72,7 @@ export default function LoginPage() {
             </button>
           </fieldset>
 
-          <Link href={"/"}>
+          <Link href={"/forgetPassword"}>
             <span
               className={`${poppins.className} font-medium leading-5 underline  text-[#425BD8]`}
             >

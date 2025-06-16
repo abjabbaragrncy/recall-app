@@ -1,14 +1,11 @@
 "use client";
-import Social from "@/components/Social";
 import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
 import { FaApple, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { LuLockKeyhole, LuUserRound } from "react-icons/lu";
-import { TfiEmail } from "react-icons/tfi";
+import { LuLockKeyhole } from "react-icons/lu";
 
-const RegisterPage = () => {
+export default function SetNewPasswordPage() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,56 +25,44 @@ const RegisterPage = () => {
           <h2
             className={`font-semibold text-xl leading-8 text-[#131314] ${poppins.className}`}
           >
-            Create New Account
+            Set New Password
           </h2>
 
           <p className={`text-Subtitle leading-6 ${manrope.className}`}>
-            Let’s create your account with simple & easy steps.
+            Let’s set a strong password to keep your account secure
           </p>
         </div>
-        <form className="space-y-6" action="#" onSubmit={handleSubmit}>
+        <form className="space-y-7" action="#" onSubmit={handleSubmit}>
           <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
             <legend
               className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
             >
-              Name
-            </legend>
-
-            <LuUserRound className="text-Inactive text-xl font-bold" />
-            <input
-              type="text"
-              name="name"
-              placeholder="ex: John Doe"
-              className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
-            />
-          </fieldset>
-          <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
-            <legend
-              className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
-            >
-              Email address
-            </legend>
-            <TfiEmail className="text-Inactive text-xl font-bold" />
-            <input
-              type="email"
-              name="email"
-              id=""
-              placeholder="ex: johndoe@gmail.com"
-              className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
-            />
-          </fieldset>
-          <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
-            <legend
-              className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
-            >
-              Password
+              New Password
             </legend>
             <LuLockKeyhole className="text-Inactive text-xl font-bold" />
             <input
               type={showPassword ? "text" : "password"}
-              name="password"
-              id=""
+              name="new-password"
               placeholder="*************"
+              required
+              className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
+            />
+            <button onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+            </button>
+          </fieldset>
+          <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
+            <legend
+              className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
+            >
+              Retype New Password
+            </legend>
+            <LuLockKeyhole className="text-Inactive text-xl font-bold" />
+            <input
+              type={showPassword ? "text" : "password"}
+              name="retype-password"
+              placeholder="*************"
+              required
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />
             <button onClick={() => setShowPassword(!showPassword)}>
@@ -85,27 +70,14 @@ const RegisterPage = () => {
             </button>
           </fieldset>
 
-          <div className="space-y-3">
-            <input
-              type="submit"
-              value="Create Account"
-              className={`${poppins.className} mt-4 font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
-            />
-
-            <h3
-              className={`${poppins.className} text-sm font-medium leading-5 text-center space-x-1.5`}
-            >
-              <span className="text-TextInactive">
-                Already have an account?
-              </span>
-              <Link className="text-[#425BD8] underline" href={"/login"}>
-                Login
-              </Link>
-            </h3>
-          </div>
+          <input
+            type="submit"
+            value="Set New Password"
+            className={`${poppins.className} font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
+          />
         </form>
-        <Social />
       </div>
+
       <div className="flex items-center justify-evenly gap-20 bg-white border py-3 pl-8 pr-3 rounded-[60px]">
         <h2
           className={`${poppins.className} text-[#595F71] font-medium leading-5`}
@@ -135,6 +107,4 @@ const RegisterPage = () => {
       </div>
     </section>
   );
-};
-
-export default RegisterPage;
+}

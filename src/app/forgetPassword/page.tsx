@@ -1,15 +1,12 @@
 "use client";
-import Social from "@/components/Social";
 import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import { FaApple, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { LuLockKeyhole, LuUserRound } from "react-icons/lu";
+import React from "react";
+import { FaApple } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 
-const RegisterPage = () => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+export default function ForgetPasswordPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -28,29 +25,14 @@ const RegisterPage = () => {
           <h2
             className={`font-semibold text-xl leading-8 text-[#131314] ${poppins.className}`}
           >
-            Create New Account
+            Forgot Password?
           </h2>
 
           <p className={`text-Subtitle leading-6 ${manrope.className}`}>
-            Let’s create your account with simple & easy steps.
+            Let’s reset your password with your email
           </p>
         </div>
         <form className="space-y-6" action="#" onSubmit={handleSubmit}>
-          <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
-            <legend
-              className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
-            >
-              Name
-            </legend>
-
-            <LuUserRound className="text-Inactive text-xl font-bold" />
-            <input
-              type="text"
-              name="name"
-              placeholder="ex: John Doe"
-              className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
-            />
-          </fieldset>
           <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
             <legend
               className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
@@ -61,50 +43,26 @@ const RegisterPage = () => {
             <input
               type="email"
               name="email"
-              id=""
+              required
               placeholder="ex: johndoe@gmail.com"
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />
           </fieldset>
-          <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
-            <legend
-              className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
-            >
-              Password
-            </legend>
-            <LuLockKeyhole className="text-Inactive text-xl font-bold" />
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              id=""
-              placeholder="*************"
-              className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
-            />
-            <button onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
-            </button>
-          </fieldset>
 
-          <div className="space-y-3">
-            <input
-              type="submit"
-              value="Create Account"
-              className={`${poppins.className} mt-4 font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
-            />
+          <input
+            type="submit"
+            value="Send OTP"
+            className={`${poppins.className} mt-8 mb-4 font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
+          />
 
+          <Link href={"/"}>
             <h3
-              className={`${poppins.className} text-sm font-medium leading-5 text-center space-x-1.5`}
+              className={`text-[#595F71] underline space-x-1.5 ${poppins.className} text-sm font-medium leading-5 text-center`}
             >
-              <span className="text-TextInactive">
-                Already have an account?
-              </span>
-              <Link className="text-[#425BD8] underline" href={"/login"}>
-                Login
-              </Link>
+              Cancel
             </h3>
-          </div>
+          </Link>
         </form>
-        <Social />
       </div>
       <div className="flex items-center justify-evenly gap-20 bg-white border py-3 pl-8 pr-3 rounded-[60px]">
         <h2
@@ -135,6 +93,4 @@ const RegisterPage = () => {
       </div>
     </section>
   );
-};
-
-export default RegisterPage;
+}
