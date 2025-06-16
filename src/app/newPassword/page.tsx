@@ -1,12 +1,12 @@
 "use client";
 import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { FaApple } from "react-icons/fa";
-import { TfiEmail } from "react-icons/tfi";
+import React, { useState } from "react";
+import { FaApple, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { LuLockKeyhole } from "react-icons/lu";
 
-export default function ForgetPasswordPage() {
+export default function SetNewPasswordPage() {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -25,45 +25,59 @@ export default function ForgetPasswordPage() {
           <h2
             className={`font-semibold text-xl leading-8 text-[#131314] ${poppins.className}`}
           >
-            Forgot Password?
+            Set New Password
           </h2>
 
           <p className={`text-Subtitle leading-6 ${manrope.className}`}>
-            Let’s reset your password with your email
+            Let’s set a strong password to keep your account secure
           </p>
         </div>
-        <form className="space-y-6" action="#" onSubmit={handleSubmit}>
+        <form className="space-y-7" action="#" onSubmit={handleSubmit}>
           <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
             <legend
               className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
             >
-              Email address
+              New Password
             </legend>
-            <TfiEmail className="text-Inactive text-xl font-bold" />
+            <LuLockKeyhole className="text-Inactive text-xl font-bold" />
             <input
-              type="email"
-              name="email"
+              type={showPassword ? "text" : "password"}
+              name="new-password"
+              placeholder="*************"
               required
-              placeholder="ex: johndoe@gmail.com"
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />
+            <button onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+            </button>
+          </fieldset>
+          <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
+            <legend
+              className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
+            >
+              Retype New Password
+            </legend>
+            <LuLockKeyhole className="text-Inactive text-xl font-bold" />
+            <input
+              type={showPassword ? "text" : "password"}
+              name="retype-password"
+              placeholder="*************"
+              required
+              className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
+            />
+            <button onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+            </button>
           </fieldset>
 
           <input
             type="submit"
-            value="Send OTP"
-            className={`${poppins.className} mt-8 mb-4 font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
+            value="Set New Password"
+            className={`${poppins.className} font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
           />
-
-          <Link href={"/"}>
-            <h3
-              className={`text-[#595F71] underline space-x-1.5 ${poppins.className} text-sm font-medium leading-5 text-center`}
-            >
-              Cancel
-            </h3>
-          </Link>
         </form>
       </div>
+
       <div className="flex items-center justify-evenly gap-20 bg-white border py-3 pl-8 pr-3 rounded-[60px]">
         <h2
           className={`${poppins.className} text-[#595F71] font-medium leading-5`}

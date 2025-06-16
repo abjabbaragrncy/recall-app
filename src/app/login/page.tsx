@@ -48,7 +48,7 @@ export default function LoginPage() {
             <input
               type="email"
               name="email"
-              id=""
+              required
               placeholder="ex: johndoe@gmail.com"
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />
@@ -63,7 +63,7 @@ export default function LoginPage() {
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              id=""
+              required
               placeholder="*************"
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />

@@ -38,24 +38,28 @@ export default function OTPPage() {
               type="text"
               name="otp-1"
               placeholder="-"
+              required
               className="border text-center border-[#babfcf] px-4 py-3 rounded-2xl w-[56px] h-[56px]"
             />
             <input
               type="text"
               name="otp-2"
               placeholder="-"
+              required
               className="border text-center border-[#babfcf] px-4 py-3 rounded-2xl w-[56px] h-[56px]"
             />
             <input
               type="text"
               name="otp-3"
               placeholder="-"
+              required
               className="border text-center border-[#babfcf] px-4 py-3 rounded-2xl w-[56px] h-[56px]"
             />
             <input
               type="text"
               name="otp-4"
               placeholder="-"
+              required
               className="border text-center border-[#babfcf] px-4 py-3 rounded-2xl w-[56px] h-[56px]"
             />
           </div>
