@@ -1,12 +1,12 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
 
 export const metadata: Metadata = {
-  title: "Recall",
-  description: "A modern, open-source, and self-hosted note-taking app.",
+  title: "Recall Alerts – Stay Informed & Protected",
+  description:
+    "Your safety, peace of mind, and informed decisions are our top priorities. Stay vigilant and ahead with real-time recall alerts. Search, browse, and track recalled products to stay protected in a rapidly changing world.",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
         <header>
           <Navbar />
         </header>
-        <main>{children}</main>
+        <main className="pt-12">{children}</main>
         <Footer />
       </body>
     </html>
