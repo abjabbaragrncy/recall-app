@@ -1,5 +1,5 @@
 "use client";
-import Calltoaction from "@/components/Calltoaction";
+import Calltoaction from "@/components/Home/Calltoaction";
 import { manrope, poppins } from "@/Font/font";
 import { Minus, Plus } from "@phosphor-icons/react";
 import Image from "next/image";

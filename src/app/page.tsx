@@ -1,6 +1,7 @@
 "use client";
-import Calltoaction from "@/components/Calltoaction";
 import Card from "@/components/Card";
+import Banner from "@/components/Home/Banner";
+import Calltoaction from "@/components/Home/Calltoaction";
 import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
 export default function Home() {
@@ -104,50 +105,53 @@ export default function Home() {
   ];
 
   return (
-    <div className={`${manrope.variable} ${poppins.variable} `}>
-      <div className="max-w-7xl mx-auto px-4 pt-10 pb-12">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 ">
-          <div className="flex-1 flex flex-col gap-2">
-            <h2 className="text-[#131314] text-[28px] font-semibold font-poppins leading-[38px]">
-              Explore recent recalls
-            </h2>
-            <p className="text-[#595e70] text-base font-normal font-manrope tracking-tight">
-              Check for recent recall alerts on products that are recently
-              updated
-            </p>
+    <div className={`${manrope.variable} ${poppins.variable}`}>
+      <Banner />
+      <div className="bg-WhiteSubtle ">
+        <div className="max-w-7xl mx-auto px-4 pt-10 pb-12">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 ">
+            <div className="flex-1 flex flex-col gap-2">
+              <h2 className="text-[#131314] text-[28px] font-semibold font-poppins leading-[38px]">
+                Explore recent recalls
+              </h2>
+              <p className="text-[#595e70] text-base font-normal font-manrope tracking-tight">
+                Check for recent recall alerts on products that are recently
+                updated
+              </p>
+            </div>
+            <div className="flex gap-4">
+              <button className="p-2 rounded-full outline  outline-[#b9becf] flex items-center justify-center">
+                {/* Left arrow icon */}
+                <svg
+                  width="8"
+                  height="14"
+                  viewBox="0 0 8 14"
+                  fill="#595e70"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M6.71 0.29C7.1 0.68 7.1 1.31 6.71 1.7L2.41 6L6.71 10.3C7.1 10.69 7.1 11.32 6.71 11.71C6.32 12.1 5.69 12.1 5.3 11.71L0.29 6.7C-0.1 6.31 -0.1 5.68 0.29 5.29L5.3 0.29C5.69 -0.1 6.32 -0.1 6.71 0.29Z" />
+                </svg>
+              </button>
+              <button className="p-2 rounded-full outline  outline-[#b9becf] flex items-center justify-center">
+                {/* Right arrow icon */}
+                <svg
+                  width="8"
+                  height="14"
+                  viewBox="0 0 8 14"
+                  fill="#595e70"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1.29 0.29C0.9 0.68 0.9 1.31 1.29 1.7L5.59 6L1.29 10.3C0.9 10.69 0.9 11.32 1.29 11.71C1.68 12.1 2.31 12.1 2.7 11.71L7.71 6.7C8.1 6.31 8.1 5.68 7.71 5.29L2.7 0.29C2.31 -0.1 1.68 -0.1 1.29 0.29Z" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <div className="flex gap-4">
-            <button className="p-2 rounded-full outline  outline-[#b9becf] flex items-center justify-center">
-              {/* Left arrow icon */}
-              <svg
-                width="8"
-                height="14"
-                viewBox="0 0 8 14"
-                fill="#595e70"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M6.71 0.29C7.1 0.68 7.1 1.31 6.71 1.7L2.41 6L6.71 10.3C7.1 10.69 7.1 11.32 6.71 11.71C6.32 12.1 5.69 12.1 5.3 11.71L0.29 6.7C-0.1 6.31 -0.1 5.68 0.29 5.29L5.3 0.29C5.69 -0.1 6.32 -0.1 6.71 0.29Z" />
-              </svg>
-            </button>
-            <button className="p-2 rounded-full outline  outline-[#b9becf] flex items-center justify-center">
-              {/* Right arrow icon */}
-              <svg
-                width="8"
-                height="14"
-                viewBox="0 0 8 14"
-                fill="#595e70"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M1.29 0.29C0.9 0.68 0.9 1.31 1.29 1.7L5.59 6L1.29 10.3C0.9 10.69 0.9 11.32 1.29 11.71C1.68 12.1 2.31 12.1 2.7 11.71L7.71 6.7C8.1 6.31 8.1 5.68 7.71 5.29L2.7 0.29C2.31 -0.1 1.68 -0.1 1.29 0.29Z" />
-              </svg>
-            </button>
-          </div>
-        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-[15px] pt-10">
-          {fakeProducts.map((item) => (
-            <Card key={item.id} item={item} />
-          ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-[15px] pt-10">
+            {fakeProducts.map((item) => (
+              <Card key={item.id} item={item} />
+            ))}
+          </div>
         </div>
       </div>
 

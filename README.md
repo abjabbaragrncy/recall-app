@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 recall-products
 
-## Getting Started
+A modern web application built with **Next.js 15**, **React 19**, **Tailwind CSS 4**, and **NextAuth.js**, designed for managing or displaying product recalls or similar data-centric functionalities.
 
-First, run the development server:
+## 🚀 Introduction
+
+**recall-products** is a private web application leveraging cutting-edge frontend technologies to deliver a high-performance user experience. It includes robust authentication via OAuth providers and a clean, responsive UI built with Tailwind CSS and animated with tw-animate-css.
+
+---
+
+## ✨ Features
+
+- ⚡ Built on Next.js 15 with Turbopack for fast development
+- 🎨 UI components with Tailwind CSS and icon sets from Phosphor, Lucide, and React Icons
+- 🔐 Secure OAuth authentication via Google and Apple with NextAuth.js
+- 🎭 Animated UI using `tw-animate-css`
+- 🧩 Modular architecture with TypeScript
+
+---
+
+## 💾 Installation
+
+```bash
+git clone https://github.com/your-org/recall-products.git
+cd recall-products
+npm install
+```
+
+---
+
+## ▶️ Usage
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ⚙️ Configuration
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env` file in the root of your project with the following:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+AUTH_SECRET=your_auth_secret
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+AUTH_GOOGLE_ID=your_google_client_id
+AUTH_GOOGLE_SECRET=your_google_client_secret
 
-## Deploy on Vercel
+AUTH_APPLE_ID=your_apple_client_id
+AUTH_APPLE_SECRET=your_apple_client_secret
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+These credentials are required for OAuth-based login through Google and Apple. Make sure to keep this file secure and never commit it to version control.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📜 Scripts
+
+| Script          | Description                    |
+| --------------- | ------------------------------ |
+| `npm run dev`   | Starts development server      |
+| `npm run build` | Builds the application         |
+| `npm run start` | Starts production server       |
+| `npm run lint`  | Lints the project using ESLint |
+
+---
+
+## 📦 Dependencies
+
+**Runtime:**
+
+- `next` `v15.3.3`
+- `react` `v19`
+- `next-auth` (OAuth support)
+- `tailwindcss` `v4`
+- Icon libraries: `@phosphor-icons/react`, `lucide-react`, `react-icons`
+
+**Dev Tools:**
+
+- `TypeScript` `^5`
+- `ESLint` `^9`
+- `@types/*` for React/Node
+- `tailwindcss` plugins: `tw-animate-css`, `@tailwindcss/postcss`
+
+---
+
+## 🛠 Development
+
+This project uses:
+
+- TypeScript for static typing
+- ESLint and `eslint-config-next` for linting
+- Class utility management with `clsx` and `class-variance-authority`
+
+---
+
+## 🧩 Troubleshooting
+
+- **Auth Errors:** Ensure all values in `.env` are correctly set and match your OAuth provider's credentials.
+- **Build Failures:** Run `npm run lint` and fix all linting issues before running `build`.
+- **Styles not loading:** Confirm Tailwind CSS and PostCSS config are correctly set up.
+
+---
+
+## 👥 Contributors
+
+This is a private project. To contribute, please reach out to the maintainer.
+
+---
+
+## 📄 License
+
+This project is private and not licensed for public use.
