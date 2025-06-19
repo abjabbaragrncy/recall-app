@@ -168,13 +168,12 @@ const Navbar = () => {
 
                 <Popover>
                   <PopoverTrigger>
-                    {/* <FaChevronDown className="text-white w-[14px]" /> */}
                     <Image
                       src="assets/SVG/CaretDown.svg"
                       height={14}
                       width={14}
                       alt="an user image"
-                      className="rounded-full"
+                      className="rounded-full cursor-pointer"
                     />
                   </PopoverTrigger>
                   <PopoverContent>
