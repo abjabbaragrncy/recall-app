@@ -1,9 +1,18 @@
 import Image from "next/image";
 
-const Calltoaction = () => {
+const CallToAction = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-0 pt-16 pb-10 bg-white flex flex-col gap-10">
-      <div className="w-full relative bg-[#415ad7] rounded-[30px] min-h-[400px] flex flex-col md:flex-row-reverse overflow-hidden">
+    <section className="max-w-7xl mx-auto px-4 md:px-0 pt-16 pb-10 bg-white flex gap-10">
+      <div className="w-full lg:relative  bg-[#415ad7] rounded-[30px] min-h-[400px] flex max-sm:flex-col-reverse items-center max-sm:justify-center max-sm:gap-12 lg:justify-between ">
+        <figure>
+          <Image
+            width={448}
+            height={468}
+            src="/assets/image/download_app_bg.svg"
+            alt="App Preview"
+            className="mx-auto lg:absolute lg:top-[-68px] lg:left-4 md:left-0 w-[80%] md:w-[448px] h-auto z-50"
+          />
+        </figure>
         {/* Right side - Text and Download Buttons */}
         <div className="w-full md:w-1/2 max-w-[622px] flex flex-col justify-center gap-10 p-6 md:p-12 z-10">
           <div className="flex flex-col gap-5">
@@ -47,20 +56,9 @@ const Calltoaction = () => {
             </button>
           </div>
         </div>
-
-        {/* Left side - App Image */}
-        <div className="relative w-full md:w-1/2 z-40 overflow-visible">
-          <Image
-            width={448}
-            height={468}
-            src="/assets/image/download_app_bg.svg"
-            alt="App Preview"
-            className="absolute top-[-68px] left-4 md:left-0 w-[80%] md:w-[448px] h-auto z-50"
-          />
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Calltoaction;
+export default CallToAction;
