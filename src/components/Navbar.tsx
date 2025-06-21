@@ -4,17 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { useEffect, useState } from "react";
+import { doLogout } from "@/actions";
 import { poppins } from "@/Font/font";
-import { FaChevronDown } from "react-icons/fa";
+import { SessionDetails } from "@/session/sessionDetails";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@radix-ui/react-popover";
+import { useEffect, useState } from "react";
 import { CiLogin } from "react-icons/ci";
-import { doLogout } from "@/actions";
-import { SessionDetails } from "@/session/sessionDetails";
 interface User {
   name: string;
   email: string;
@@ -101,10 +100,9 @@ const Navbar = () => {
                 height={32}
                 alt="wellsnap"
               />
-             <Link
+              <Link
                 href="/"
-                className={`text-lg lg:text-2xl font-bold text-Inactive ${poppins.className}`}
-
+                className={`text-lg lg:text-2xl font-bold text-white  ${poppins.className}`}
               >
                 Recall
               </Link>
@@ -116,7 +114,7 @@ const Navbar = () => {
               className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
                 pathname === "/"
                   ? "text-white bg-white/20"
-                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
               Home
@@ -126,7 +124,7 @@ const Navbar = () => {
               className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
                 pathname === "/about"
                   ? "text-white bg-white/20"
-                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
               About
@@ -136,7 +134,7 @@ const Navbar = () => {
               className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
                 pathname === "/contact"
                   ? "text-white bg-white/20"
-                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
               Contact
@@ -154,7 +152,7 @@ const Navbar = () => {
               Download App
             </button>
             {user ? (
-              <div className="flex items-center gap-1.5 p-[5px] border border-white rounded-full">
+              <div className="flex items-center gap-1.5 p-[5px] border border-white rounded-full pr-[9px] bg-white/10">
                 <Image
                   // src={"/assets/image/rectangle 6.png"}
                   src={user?.image}
@@ -163,14 +161,20 @@ const Navbar = () => {
                   alt="an user image"
                   className="rounded-full"
                 />
-                <p className="text-white font-poppins text-sm font-medium leading-5">
+                <p className="text-white font-poppins text-sm font-medium leading-tight">
                   {user?.name}
                   {/* user */}
                 </p>
 
                 <Popover>
                   <PopoverTrigger>
-                    <FaChevronDown className="text-white" />
+                    <Image
+                      src="assets/SVG/CaretDown.svg"
+                      height={14}
+                      width={14}
+                      alt="an user image"
+                      className="rounded-full cursor-pointer"
+                    />
                   </PopoverTrigger>
                   <PopoverContent>
                     <div className="bg-white p-5 rounded-xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.15)]">
