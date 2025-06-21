@@ -69,7 +69,7 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-16  gap-[116px] px-4 md:px-0 py-8 lg:py-0 lg:pt-16 flex flex-col lg:flex-row items-center">
+      <div className="max-w-7xl mx-auto pt-16 gap-6 lg:gap-[116px] px-4 md:px-0 py-8 lg:py-0 lg:pt-16 flex flex-col lg:flex-row items-center">
         {/* Left Rounded Image Card */}
         <div className="w-full max-w-[460px]  h-auto">
           <Image
@@ -83,8 +83,8 @@ const Page = () => {
 
         {/* Right Content */}
         <div className="w-full py-5 flex flex-col">
-          <div className="flex flex-col gap-5">
-            <h2 className="text-[#131314] text-[32px] font-semibold font-poppins leading-[48px]">
+          <div className="flex flex-col gap-4 lg:gap-5">
+            <h2 className="text-[#131314]  text-[28px]  lg:text-[32px] font-semibold font-poppins leading-[38px] lg:leading-[48px]">
               Our mission is to keep individuals and families informed about
               product recalls that affect their daily lives
             </h2>
@@ -128,11 +128,11 @@ const Page = () => {
       </div>
 
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto pt-8 lg:pt-16 bg-white flex flex-col lg:flex-row items-center gap-10 lg:gap-[116px] px-4 md:px-0">
+        <div className="max-w-7xl mx-auto pt-8 lg:pt-16 bg-white flex flex-col lg:flex-row items-center gap-6 lg:gap-[116px] px-4 md:px-0">
           {/* Text Section */}
-          <div className="w-full lg:flex-1 flex flex-col gap-8">
+          <div className="w-full lg:flex-1 flex flex-col  gap-6 lg:gap-8">
             <div className="flex flex-col gap-5">
-              <h2 className="text-[#131314] text-[24px] sm:text-[28px] md:text-[30px] lg:text-[32px] font-semibold font-poppins leading-[36px] md:leading-[42px] lg:leading-[48px]">
+              <h2 className="text-[#131314] text-[24px] sm:text-[28px] md:text-[30px] lg:text-[32px] font-semibold font-poppins leading-[38px] md:leading-[42px] lg:leading-[48px]">
                 A safer, smarter world where everyone has the tools to avoid
                 dangerous products and fraudulent practices.
               </h2>
@@ -171,14 +171,14 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto py-8 lg:py-14 space-y-8 px-4 md:px-0">
-        <div className="max-w-xl mx-auto text-center  text-[#131314] text-[32px] font-semibold font-poppins leading-[48px]">
+      <div className="max-w-6xl mx-auto py-8 lg:py-14 space-y-7 lg:space-y-8 px-4 md:px-0">
+        <div className="max-w-xl mx-auto text-center  text-[#131314] text-[28px] lg:text-[32px] font-semibold font-poppins leading-[38px] lg:leading-[48px]">
           Our core values that drive everything we do
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          <div className="max-w-xl w-full px-6 sm:px-8 py-5 bg-white rounded-[10px] shadow-md flex flex-col-reverse sm:flex-row  justify-center md:items-center gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
+          <div className="max-w-xl w-full px-5 sm:px-8 py-5 bg-white rounded-[10px] shadow-md flex flex-col-reverse sm:flex-row  justify-center md:items-center gap-2 lg:gap-8">
             {/* Text Content */}
-            <div className="flex-1 flex flex-col items-start gap-2.5">
+            <div className="flex-1 flex flex-col items-start gap-1.5 lg:gap-2.5">
               <h3 className="text-[#131314] text-lg font-medium font-poppins leading-relaxed">
                 Smart Recall Search
               </h3>
@@ -199,9 +199,9 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="max-w-xl w-full px-6 sm:px-8 py-5 bg-white rounded-[10px] shadow-md flex flex-col-reverse sm:flex-row justify-center md:items-center gap-6 sm:gap-8">
+          <div className="max-w-xl w-full px-5 sm:px-8 py-5 bg-white rounded-[10px] shadow-md flex flex-col-reverse sm:flex-row justify-center md:items-center gap-2 lg:gap-8">
             {/* Text Content */}
-            <div className="flex-1 flex flex-col items-start gap-2.5">
+            <div className="flex-1 flex flex-col items-start gap-1.5 lg:gap-2.5">
               <h3 className="text-[#131314] text-lg font-medium font-poppins leading-relaxed">
                 Custom Alert Notifications
               </h3>
@@ -222,9 +222,9 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="max-w-xl w-full px-6 sm:px-8 py-5 bg-white rounded-[10px] shadow-md flex flex-col-reverse sm:flex-row justify-center md:items-center gap-6 sm:gap-8">
+          <div className="max-w-xl w-full px-5 sm:px-8 py-5 bg-white rounded-[10px] shadow-md flex flex-col-reverse sm:flex-row justify-center md:items-center gap-2 lg:gap-8">
             {/* Text Content */}
-            <div className="flex-1 flex flex-col items-start gap-2.5">
+            <div className="flex-1 flex flex-col items-start gap-1.5 lg:gap-2.5">
               <h3 className="text-[#131314] text-lg font-medium font-poppins leading-relaxed">
                 Scam Awareness Tools
               </h3>
@@ -245,9 +245,9 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="max-w-xl w-full px-6 sm:px-8 py-5 bg-white rounded-[10px] shadow-md flex flex-col-reverse sm:flex-row justify-center md:items-center gap-6 sm:gap-8">
+          <div className="max-w-xl w-full px-5 sm:px-8 py-5 bg-white rounded-[10px] shadow-md flex flex-col-reverse sm:flex-row justify-center md:items-center gap-2 lg:gap-8">
             {/* Text Content */}
-            <div className="flex-1 flex flex-col items-start gap-2.5">
+            <div className="flex-1 flex flex-col items-start gap-1.5 lg:gap-2.5">
               <h3 className="text-[#131314] text-lg font-medium font-poppins leading-relaxed">
                 Community Reporting
               </h3>
@@ -272,8 +272,8 @@ const Page = () => {
       </div>
 
       <div className="bg-white">
-        <div className="w-full max-w-7xl mx-auto px-6 py-14 flex flex-col items-center gap-8">
-          <h2 className="text-center text-[#131314] text-[28px] md:text-4xl font-semibold font-poppins leading-snug md:leading-[48px] max-w-xl">
+        <div className="w-full max-w-7xl mx-auto px-4 py-8  lg:px-0 lg:py-14 flex flex-col items-center gap-6 lg:gap-8">
+          <h2 className="text-center text-[#131314] text-[28px] md:text-4xl font-semibold font-poppins  leading-[38px] lg:leading-[48px] max-w-xl">
             Frequently asked questions about our application
           </h2>
 
@@ -320,8 +320,7 @@ const Page = () => {
           </div>
 
           {/* Contact Box */}
-          <div className="w-full max-w-5xl px-8 py-8 bg-[#e8efff] rounded-[10px] flex flex-col md:flex-row justify-between items-center gap-6 relative overflow-hidden">
-            {/* Blurred Backgrounds (optional visual effect) */}
+          <div className="w-full max-w-5xl px-8 py-8 bg-[#e8efff] rounded-[10px] flex flex-col md:flex-row justify-between items-start gap-6 relative overflow-hidden">
             <div className="absolute w-[227px] h-[227px] top-[-50px] left-[-60px] opacity-50 bg-[#30acff] rounded-full blur-[155px] pointer-events-none" />
             <div className="absolute w-[357px] h-[357px] top-[-180px] right-[-70px] opacity-20 bg-[#76ff58] rounded-full blur-[155px] pointer-events-none" />
 
@@ -343,7 +342,7 @@ const Page = () => {
               width={54}
               height={61}
               alt="arow"
-              className="absolute -top-3 right-40"
+              className="absolute -top-3 right-40 hidden lg:block"
             />
           </div>
         </div>

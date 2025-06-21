@@ -1,11 +1,11 @@
 "use client";
-import { List, MagnifyingGlass, X } from "@phosphor-icons/react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { doLogout } from "@/actions";
-import { poppins } from "@/Font/font";
+import { poppins, roboto_flex } from "@/Font/font";
 import { SessionDetails } from "@/session/sessionDetails";
 import {
   Popover,
@@ -47,48 +47,56 @@ const Navbar = () => {
                 className="text-white text-2xl focus:outline-none"
                 aria-label="Toggle Menu"
               >
-                {isMenuOpen ? <X size={24} /> : <List size={24} />}
+                <Image
+                  src="/assets/SVG/List.svg"
+                  height={28}
+                  width={28}
+                  alt="Icon"
+                  className={`rounded-full ${
+                    isMenuOpen ? "bg-[#ffffff4d]" : ""
+                  }`}
+                />
               </button>
 
               {isMenuOpen && (
-                <div className="fixed top-0 left-0 w-full h-screen bg-Background-Inverse z-[999] flex flex-col justify-between">
-                  {/* <div className="pt-20 flex flex-col justify-start items-center gap-6">
-                  <Link
-                    href="/"
-                    className="text-Text-Default text-lg font-medium font-['Poppins']"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="text-Text-Default text-lg font-medium font-['Poppins']"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    About
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="text-Text-Default text-lg font-medium font-['Poppins']"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Contact
-                  </Link>
-                  <div className="mt-6 border-b border-Border-Accent px-4 py-2">
-                    <span className="text-Text-Accent text-sm font-medium font-['Poppins']">
-                      Download App
-                    </span>
+                <div className="fixed top-0 left-0 w-full h-screen bg-Inactive z-[999] flex flex-col justify-between">
+                  <div className="pt-20 flex flex-col justify-start items-center gap-6">
+                    <Link
+                      href="/"
+                      className="text-Text-Default text-lg font-medium "
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Home
+                    </Link>
+                    <Link
+                      href="/about"
+                      className="text-Text-Default text-lg font-medium "
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      About
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="text-Text-Default text-lg font-medium "
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Contact
+                    </Link>
+                    <div className="mt-6 border-b border-Border-Accent px-4 py-2">
+                      <span className="text-Text-Accent text-sm font-medium ">
+                        Download App
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="w-full p-4 border-t border-Border-Mild text-center">
-                  <button
-                    className="w-full py-3 bg-white text-Primary font-medium rounded-xl text-base"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Close Menu
-                  </button>
-                </div> */}
+                  <div className="w-full p-4 border-t border-Border-Mild text-center">
+                    <button
+                      className="w-full py-3 bg-white text-Primary font-medium rounded-xl text-base"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Close Menu
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
@@ -102,7 +110,7 @@ const Navbar = () => {
               />
               <Link
                 href="/"
-                className={`text-lg lg:text-2xl font-bold text-white  ${poppins.className}`}
+                className={`text-lg lg:text-2xl font-bold text-white  ${roboto_flex.className}`}
               >
                 Recall
               </Link>

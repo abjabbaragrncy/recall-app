@@ -1,5 +1,11 @@
 import { manrope, poppins } from "@/Font/font";
 
+export const metadata: Metadata = {
+  title: "Terms & Conditions – Recall Alerts",
+  description:
+    "Read the terms and conditions governing your use of Recall Alerts. Understand your rights, responsibilities, and the rules that ensure transparency and trust across our platform.",
+};
+
 const page = () => {
   return (
     <div className={`${manrope.variable} ${poppins.variable}`}>
