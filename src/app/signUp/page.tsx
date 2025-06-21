@@ -1,16 +1,14 @@
 "use client";
-
 import Social from "@/components/Social";
 import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
-
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 import { FaApple, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { LuLockKeyhole } from "react-icons/lu";
+import { LuLockKeyhole, LuUserRound } from "react-icons/lu";
 import { TfiEmail } from "react-icons/tfi";
 
-export default function LoginPage() {
+const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,14 +28,29 @@ export default function LoginPage() {
           <h2
             className={`font-semibold text-xl leading-8 text-[#131314] ${poppins.className}`}
           >
-            Login to Your Account
+            Create New Account
           </h2>
 
           <p className={`text-Subtitle leading-6 ${manrope.className}`}>
-            Lets login to your account to continue where you left.
+            Let’s create your account with simple & easy steps.
           </p>
         </div>
         <form className="space-y-6" action="#" onSubmit={handleSubmit}>
+          <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
+            <legend
+              className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
+            >
+              Name
+            </legend>
+
+            <LuUserRound className="text-Inactive text-xl font-bold" />
+            <input
+              type="text"
+              name="name"
+              placeholder="ex: John Doe"
+              className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
+            />
+          </fieldset>
           <fieldset className="border border-borderColor px-4 py-3 rounded-4xl flex items-center  gap-2.5">
             <legend
               className={`text-BlackBg px-0.5 text-sm leading-5 ${poppins.className}`}
@@ -48,7 +61,7 @@ export default function LoginPage() {
             <input
               type="email"
               name="email"
-              required
+              id=""
               placeholder="ex: johndoe@gmail.com"
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />
@@ -63,7 +76,7 @@ export default function LoginPage() {
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              required
+              id=""
               placeholder="*************"
               className={`w-full border-none focus:outline-none focus:border-none ${manrope.className} text-Inactive leading-5.5 tracking-[0.07px]`}
             />
@@ -72,26 +85,21 @@ export default function LoginPage() {
             </button>
           </fieldset>
 
-          <Link href={"/forgetPassword"}>
-            <span
-              className={`${poppins.className} font-medium leading-5 underline  text-[#425BD8]`}
-            >
-              Forgot Password?
-            </span>
-          </Link>
           <div className="space-y-3">
             <input
               type="submit"
-              value="Login"
+              value="Create Account"
               className={`${poppins.className} mt-4 font-medium leading-5 rounded-4xl px-2.5 py-4.5 bg-[#425BD8] text-white w-full`}
             />
 
             <h3
-              className={`space-x-1.5 ${poppins.className} text-sm font-medium leading-5 text-center`}
+              className={`${poppins.className} text-sm font-medium leading-5 text-center space-x-1.5`}
             >
-              <span className="text-TextInactive">New here?</span>
-              <Link className="text-[#425BD8] underline" href={"/signUp"}>
-                Create Account
+              <span className="text-TextInactive">
+                Already have an account?
+              </span>
+              <Link className="text-[#425BD8] underline" href={"/login"}>
+                Login
               </Link>
             </h3>
           </div>
@@ -127,4 +135,6 @@ export default function LoginPage() {
       </div>
     </section>
   );
-}
+};
+
+export default RegisterPage;

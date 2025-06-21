@@ -1,9 +1,9 @@
 "use client";
 
+import { manrope } from "@/Font/font";
 import { ArrowLeft, ArrowRight, ArrowRightIcon } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link.js";
-import { manrope } from "../../Font/font.js";
 const Page = () => {
   const product = {
     name: "The Heroes Enchanted mushroom chips",
@@ -107,7 +107,7 @@ const Page = () => {
           <div className="border-t border-BorderBg my-6"></div>
 
           <div
-            className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4 bg-[#E8790A] p-2.5 rounded-[8px] text-Inactive"
+            className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4 bg-[#E8790A] p-2.5 rounded-[8px] text-white"
             style={{
               backgroundImage: "url('/assets/image/report_count_pattern.png')",
               backgroundRepeat: "no-repeat",
@@ -140,7 +140,7 @@ const Page = () => {
             {/* Right section */}
             <Link href="/">
               <button
-                className="w-full md:w-fit flex items-center justify-center text-Inactive px-4 py-2.5 rounded-full border border-BorderMild hover:bg-white/10 transition"
+                className="w-full md:w-fit flex items-center justify-center text-white px-4 py-2.5 rounded-full border border-BorderMild hover:bg-white/10 transition"
                 aria-label="Go back to previous page"
               >
                 <span className="mr-1.5 text-sm font-medium">

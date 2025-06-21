@@ -3,12 +3,35 @@ import { List, MagnifyingGlass, X } from "@phosphor-icons/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+
+import { doLogout } from "@/actions";
 import { poppins } from "@/Font/font";
+import { SessionDetails } from "@/session/sessionDetails";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@radix-ui/react-popover";
+import { useEffect, useState } from "react";
+import { CiLogin } from "react-icons/ci";
+interface User {
+  name: string;
+  email: string;
+  image: string;
+}
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const pathname = usePathname();
+
+  const [user, setUser] = useState<User | null | undefined>(null);
+  useEffect(() => {
+    async function fetchUser() {
+      const res = await SessionDetails();
+      setUser(res);
+    }
+    fetchUser();
+  }, []);
 
   return (
     <nav
@@ -77,12 +100,12 @@ const Navbar = () => {
                 height={32}
                 alt="wellsnap"
               />
-              <a
-                href="#"
-                className={`text-lg lg:text-2xl font-bold text-Inactive ${poppins.className}`}
+              <Link
+                href="/"
+                className={`text-lg lg:text-2xl font-bold text-white  ${poppins.className}`}
               >
                 Recall
-              </a>
+              </Link>
             </div>
           </div>
           <div className="hidden lg:flex items-center space-x-6">
@@ -91,7 +114,7 @@ const Navbar = () => {
               className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
                 pathname === "/"
                   ? "text-white bg-white/20"
-                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
               Home
@@ -101,7 +124,7 @@ const Navbar = () => {
               className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
                 pathname === "/about"
                   ? "text-white bg-white/20"
-                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
               About
@@ -111,7 +134,7 @@ const Navbar = () => {
               className={`px-3.5 py-1 rounded-full transition-all duration-400 ${
                 pathname === "/contact"
                   ? "text-white bg-white/20"
-                  : "text-white/70 hover:bg-white/20 hover:text-Inactive"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
               }`}
             >
               Contact
@@ -128,9 +151,78 @@ const Navbar = () => {
             >
               Download App
             </button>
-            <button className="py-1.5 px-3.5 bg-white text-Primary hover:shadow-xl/20 rounded-full text-sm font-medium cursor-pointer">
-              Login/Signup
-            </button>
+            {user ? (
+              <div className="flex items-center gap-1.5 p-[5px] border border-white rounded-full pr-[9px] bg-white/10">
+                <Image
+                  // src={"/assets/image/rectangle 6.png"}
+                  src={user?.image}
+                  height={24}
+                  width={24}
+                  alt="an user image"
+                  className="rounded-full"
+                />
+                <p className="text-white font-poppins text-sm font-medium leading-tight">
+                  {user?.name}
+                  {/* user */}
+                </p>
+
+                <Popover>
+                  <PopoverTrigger>
+                    <Image
+                      src="assets/SVG/CaretDown.svg"
+                      height={14}
+                      width={14}
+                      alt="an user image"
+                      className="rounded-full cursor-pointer"
+                    />
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <div className="bg-white p-5 rounded-xl shadow-[0px_4px_10px_0px_rgba(0,0,0,0.15)]">
+                      <div className="flex items-center gap-3">
+                        <Image
+                          // src={"/assets/image/rectangle 6.png"}
+                          src={user?.image}
+                          height={34}
+                          width={34}
+                          alt="an user image"
+                          className="rounded-full"
+                        />
+                        <div>
+                          <h1
+                            className={`${poppins.className} text-sm font-medium leading-5 text-BlackBg `}
+                          >
+                            {user?.name}
+                            {/* User */}
+                          </h1>
+
+                          <p
+                            className={`${poppins.className} text-[13px] leading-5 text-TextSubtle`}
+                          >
+                            {user?.email}
+                            {/* user@gmail.com */}
+                          </p>
+                        </div>
+                      </div>
+                      <form action={doLogout}>
+                        <button
+                          type="submit"
+                          className={`${poppins.className} flex items-center justify-center gap-2 text-[13px] text-BlackBg border border-borderColor mt-4 font-medium leading-5 rounded-4xl px-4 py-1.5 w-full`}
+                        >
+                          <CiLogin className="font-bold text-sm text-BlackBg" />
+                          <span>Log Out</span>
+                        </button>
+                      </form>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
+            ) : (
+              <Link href={"/login"}>
+                <button className="py-1.5 px-3.5 bg-white text-Primary hover:shadow-xl/20 rounded-full text-sm font-medium cursor-pointer">
+                  Login/Signup
+                </button>
+              </Link>
+            )}
           </div>
         </nav>
       </div>
