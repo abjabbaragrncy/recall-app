@@ -1,5 +1,5 @@
 "use client";
-import Calltoaction from "@/components/Home/Calltoaction";
+import CallToAction from "@/components/Home/CallToAction";
 import { manrope, poppins } from "@/Font/font";
 import { Minus, Plus } from "@phosphor-icons/react";
 import Image from "next/image";
@@ -348,7 +348,7 @@ const Page = () => {
           </div>
         </div>
 
-        <Calltoaction />
+        <CallToAction />
       </div>
     </div>
   );

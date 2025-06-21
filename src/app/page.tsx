@@ -1,7 +1,9 @@
 "use client";
 import Card from "@/components/Card";
 import Banner from "@/components/Home/Banner";
-import Calltoaction from "@/components/Home/Calltoaction";
+import CallToAction from "@/components/Home/CallToAction";
+
+
 import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
 export default function Home() {
@@ -228,7 +230,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Calltoaction />
+      <CallToAction />
     </div>
   );
 }
