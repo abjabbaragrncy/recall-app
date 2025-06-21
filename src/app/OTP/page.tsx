@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaApple } from "react-icons/fa";
-import { TfiEmail } from "react-icons/tfi";
 
 export default function OTPPage() {
   const handleSubmit = (e) => {
