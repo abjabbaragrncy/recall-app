@@ -1,7 +1,7 @@
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import "./globals.css";
+import ClientLayout from "@/components/ClientLayout";
 
 export const metadata: Metadata = {
   title: "Recall Alerts – Stay Informed & Protected",
@@ -20,8 +20,9 @@ export default function RootLayout({
         <header>
           <Navbar />
         </header>
-        <main className="pt-12">{children}</main>
-        <Footer />
+        <ClientLayout>{children}</ClientLayout>
+        {/* <main className="pt-12">{children}</main> */}
+        {/* <Footer /> */}
       </body>
     </html>
   );
