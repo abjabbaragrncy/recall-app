@@ -14,6 +14,7 @@ import {
 } from "@radix-ui/react-popover";
 import { useEffect, useState } from "react";
 import { CiLogin } from "react-icons/ci";
+import DownloadAppModal from "./DownloadAppModal";
 interface User {
   name: string;
   email: string;
@@ -153,12 +154,13 @@ const Navbar = () => {
             <div>
               <MagnifyingGlass size={20} className="text-white" />
             </div>
-            <button
+            {/* <button
               id="open-modal"
               className="hidden lg:block font-medium px-3.5 py-1 text-white rounded-xl text-sm  cursor-pointer"
             >
               Download App
-            </button>
+            </button> */}
+            <DownloadAppModal />
             {user ? (
               <div className="flex items-center gap-1.5 p-[5px] border border-white rounded-full pr-[9px] bg-white/10">
                 <Image
