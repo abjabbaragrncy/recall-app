@@ -136,3 +136,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-100%) scale(0.9);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-slide-in-top {
+    animation: slide-in-top 0.4s ease-out forwards;
+  }
+}
