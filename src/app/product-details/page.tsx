@@ -117,14 +117,14 @@ const Page = () => {
           >
             {/* Left section */}
             <div className="flex items-center space-x-3">
-              <div className="w-fit p-2.5 bg-Inactive/20 rounded-[8px]">
+              <figure className="w-fit p-2.5 bg-Inactive/20 rounded-[8px]">
                 <Image
                   src="/assets/SVG/Warning.svg"
                   alt="Warning Icon"
                   width={26}
                   height={26}
                 />
-              </div>
+              </figure>
               <div>
                 <p className={`text-sm font-normal ${manrope.className}`}>
                   Total Reports
@@ -138,14 +138,12 @@ const Page = () => {
             </div>
 
             {/* Right section */}
-            <Link href="/">
+            <Link className="max-sm:w-full max-sm:p-2.5" href="/">
               <button
                 className="w-full md:w-fit flex items-center justify-center text-white px-4 py-2.5 rounded-full border border-BorderMild hover:bg-white/10 transition"
-                aria-label="Go back to previous page"
+                aria-label="Go back to previous page text-sm font-medium"
               >
-                <span className="mr-1.5 text-sm font-medium">
-                  Read all reports
-                </span>
+                Read all reports
                 <ArrowRight size={20} />
               </button>
             </Link>
