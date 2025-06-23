@@ -1,14 +1,19 @@
 "use client";
 import Social from "@/components/Social";
 import { manrope, poppins } from "@/Font/font";
+import useMetadata from "@/hooks/useMetadata";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaApple, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { LuLockKeyhole, LuUserRound } from "react-icons/lu";
 import { TfiEmail } from "react-icons/tfi";
 
 const RegisterPage = () => {
+  useMetadata(
+    "Sign Up | Recall Products",
+    "Create your new Recall Products account."
+  );
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -2,6 +2,7 @@
 
 import Social from "@/components/Social";
 import { manrope, poppins } from "@/Font/font";
+import useMetadata from "@/hooks/useMetadata";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -12,6 +13,10 @@ import { LuLockKeyhole } from "react-icons/lu";
 import { TfiEmail } from "react-icons/tfi";
 
 export default function LoginPage() {
+  useMetadata(
+    "Login | Recall Products",
+    "Access your Recall Products account securely."
+  );
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,12 +1,16 @@
 "use client";
 import { manrope, poppins } from "@/Font/font";
+import useMetadata from "@/hooks/useMetadata";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { FaApple } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 
 export default function ForgetPasswordPage() {
+  useMetadata(
+    "Set New Password | Recall Products",
+    "Choose a new secure password."
+  );
   const handleSubmit = (e) => {
     e.preventDefault();
   };
