@@ -85,7 +85,7 @@ const Footer = () => {
                 Contact Us
               </p>
             </Link>
-            <Link href="/terms-and-conditions">
+            <Link href="/terms">
               <p className={`text-sm text-Inactive ${manrope.className}`}>
                 Terms & Conditions
               </p>

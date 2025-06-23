@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl">
         <nav className="flex flex-wrap items-center justify-between py-3 px-4 lg:px-0 ">
           <div className="flex items-center gap-4">
-            <div className="lg:hidden relative">
+            <div className="lg:hidden  z-[999]">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-white text-2xl focus:outline-none"
@@ -53,50 +53,56 @@ const Navbar = () => {
                   height={28}
                   width={28}
                   alt="Icon"
-                  className={`rounded-full ${
-                    isMenuOpen ? "bg-[#ffffff4d]" : ""
+                  className={`p-0.5  rounded-lg ${
+                    isMenuOpen ? "bg-white/30" : ""
                   }`}
                 />
               </button>
 
+              {/* Dropdown menu that opens below nav */}
               {isMenuOpen && (
-                <div className="fixed top-0 left-0 w-full h-screen bg-Inactive z-[999] flex flex-col justify-between">
-                  <div className="pt-20 flex flex-col justify-start items-center gap-6">
-                    <Link
-                      href="/"
-                      className="text-Text-Default text-lg font-medium "
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Home
-                    </Link>
-                    <Link
-                      href="/about"
-                      className="text-Text-Default text-lg font-medium "
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      About
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="text-Text-Default text-lg font-medium "
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Contact
-                    </Link>
-                    <div className="mt-6 border-b border-Border-Accent px-4 py-2">
-                      <span className="text-Text-Accent text-sm font-medium ">
-                        Download App
-                      </span>
+                <div className="absolute top-full left-0 right-0 bg-white shadow-md border-b border-BorderMild z-[999]">
+                  <div className="w-full max-w-7xl mx-auto">
+                    <div className="flex flex-col items-center gap-4 py-6">
+                      <Link
+                        href="/"
+                        className="text-BlackBg text-lg font-medium"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Home
+                      </Link>
+                      <Link
+                        href="/about"
+                        className="text-BlackBg text-lg font-medium"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        About
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="text-BlackBg text-lg font-medium"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Contact
+                      </Link>
+                      <div className="border-b border-Border-Accent px-4 py-2">
+                        <DownloadAppModal triggerClassName="text-Primary text-sm font-medium" />
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="w-full p-4 border-t border-Border-Mild text-center">
-                    <button
-                      className="w-full py-3 bg-white text-Primary font-medium rounded-xl text-base"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Close Menu
-                    </button>
+                    <div className="w-full  border-t border-BorderMild text-center">
+                      <button
+                        className="w-full py-2 bg-white flex items-center justify-center"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <Image
+                          src="/assets/SVG/CaretUp.svg"
+                          height={24}
+                          width={24}
+                          alt="Close Icon"
+                        />
+                      </button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -154,13 +160,8 @@ const Navbar = () => {
             <div>
               <MagnifyingGlass size={20} className="text-white" />
             </div>
-            {/* <button
-              id="open-modal"
-              className="hidden lg:block font-medium px-3.5 py-1 text-white rounded-xl text-sm  cursor-pointer"
-            >
-              Download App
-            </button> */}
-            <DownloadAppModal />
+
+            <DownloadAppModal triggerClassName="hidden lg:block font-medium px-3.5 py-1 text-white rounded-xl text-sm cursor-pointer" />
             {user ? (
               <div className="flex items-center gap-1.5 p-[5px] border border-white rounded-full pr-[9px] bg-white/10">
                 <Image

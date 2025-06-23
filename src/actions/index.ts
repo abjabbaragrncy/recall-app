@@ -3,7 +3,6 @@ import { signIn, signOut } from "next-auth/react";
 
 export async function doSocialLogin(formData: object) {
   const action: string = formData.get("action");
-  // console.log(formData);
   await signIn(action, { redirectTo: "/" });
 }
 

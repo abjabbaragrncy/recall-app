@@ -9,13 +9,11 @@ import {
 } from "@/components/ui/dialog"; // Adjust path as needed
 import Image from "next/image";
 
-export default function DownloadAppModal() {
+export default function DownloadAppModal({ triggerClassName = "" }) {
   return (
     <Dialog className={`${manrope.variable} ${poppins.variable} `}>
       <DialogTrigger asChild>
-        <button className="hidden lg:block font-medium px-3.5 py-1 text-white rounded-xl text-sm cursor-pointer">
-          Download App
-        </button>
+        <button className={triggerClassName}>Download App</button>
       </DialogTrigger>
 
       <DialogContent className="animate-slide-in-top fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-transparent border-none  max-w-[706px] shadow-none">

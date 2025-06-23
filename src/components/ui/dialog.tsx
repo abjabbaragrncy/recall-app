@@ -38,7 +38,8 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        "bg-Primary fixed top-[10%] left-1/2 z-50 grid w-full translate-x-[-50%] translate-y-0 md:translate-y-[-50%] transition-transform duration-300 ease-out",
+        "data-[state=open]:animate-slide-in-top",
         className
       )}
       {...props}
@@ -60,7 +61,9 @@ function DialogContent({
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          "bg-Primary fixed top-[10%] left-1/2 z-50 grid w-full translate-x-[-50%] translate-y-0 md:translate-y-[-50%] transition-transform duration-300 ease-out data-[state=open]:animate-slide-in-top",
+          "bg-Primary fixed top-[10%] left-1/2 z-50 grid w-full translate-x-[-50%] translate-y-0 md:translate-y-[-50%] transition-transform duration-300 ease-out",
+          "data-[state=open]:animate-slide-in-top",
+          "data-[state=closed]:animate-slide-out-top",
           className
         )}
         {...props}
@@ -69,7 +72,7 @@ function DialogContent({
         {showCloseButton && (
           <DialogPrimitive.Close
             data-slot="dialog-close"
-            className="data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-60 transition-opacity hover:opacity-100  disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+            className="data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-60 transition-opacity hover:opacity-100  disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-[state=closed]:animate-slide-out-top"
           >
             <Image
               src="assets/SVG/X.svg"
