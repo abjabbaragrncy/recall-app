@@ -1,11 +1,15 @@
 "use client";
 import { manrope, poppins } from "@/Font/font";
+import useMetadata from "@/hooks/useMetadata";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { FaApple } from "react-icons/fa";
 
 export default function OTPPage() {
+  useMetadata(
+    "Verify OTP | Recall Products",
+    "Enter the one-time code sent to your email."
+  );
   const handleSubmit = (e) => {
     e.preventDefault();
   };

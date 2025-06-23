@@ -1,9 +1,14 @@
 "use client";
 import { manrope, poppins } from "@/Font/font";
+import useMetadata from "@/hooks/useMetadata";
 import { EnvelopeSimple, Phone } from "@phosphor-icons/react";
 import Image from "next/image";
 
-const page = () => {
+const Page = () => {
+  useMetadata(
+    "Contact Us | Recall Products",
+    "Get in touch with the Recall Products team for support, feedback, or partnership inquiries."
+  );
   return (
     <div className={`${manrope.variable} ${poppins.variable}`}>
       <div className="relative bg-Primary pt-16 pb-32">
@@ -183,4 +188,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

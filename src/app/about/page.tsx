@@ -1,6 +1,7 @@
 "use client";
 import CallToAction from "@/components/Home/CallToAction";
 import { manrope, poppins } from "@/Font/font";
+import useMetadata from "@/hooks/useMetadata";
 import { Minus, Plus } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useState } from "react";
@@ -38,6 +39,11 @@ const Page = () => {
         "Yes, users can browse the archive to view past recalls by date or product category.",
     },
   ];
+
+  useMetadata(
+    "About Us | Recall Products",
+    "Learn more about Recall Products and how we keep you informed about product safety alerts and recalls."
+  );
 
   const [activeIndex, setActiveIndex] = useState(null);
 

@@ -2,8 +2,6 @@
 import Card from "@/components/Card";
 import Banner from "@/components/Home/Banner";
 import CallToAction from "@/components/Home/CallToAction";
-
-
 import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
 export default function Home() {
