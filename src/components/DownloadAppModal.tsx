@@ -1,5 +1,4 @@
 "use client";
-import { manrope, poppins } from "@/Font/font";
 
 import {
   Dialog,
@@ -9,21 +8,19 @@ import {
 } from "@/components/ui/dialog"; // Adjust path as needed
 import Image from "next/image";
 
-export default function DownloadAppModal() {
+export default function DownloadAppModal({ triggerClassName = "" }) {
   return (
-    <Dialog className={`${manrope.variable} ${poppins.variable} `}>
+    <Dialog>
       <DialogTrigger asChild>
-        <button className="hidden lg:block font-medium px-3.5 py-1 text-white rounded-xl text-sm cursor-pointer">
-          Download App
-        </button>
+        <button className={triggerClassName}>Download App</button>
       </DialogTrigger>
 
-      <DialogContent className="animate-slide-in-top fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-transparent border-none  max-w-[706px] shadow-none">
-        <div className="w-full p-[60px] bg-[#415ad7] rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.4)] flex flex-col md:flex-row items-center gap-10 relative">
+      <DialogContent className="animate-slide-in-top fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-transparent border-none  max-w-[706px] max-sm:max-w-[338px] shadow-none">
+        <div className="w-full p-[60px] max-sm:py-[70px] max-sm:px-4 bg-[#415ad7] rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.4)] flex flex-col md:flex-row items-center gap-10 relative">
           {/* Text Section */}
           <div className="flex-1 flex flex-col items-center text-center gap-[50px]">
             <div>
-              <DialogTitle className="text-white font-poppins leading-[38px] mb-5">
+              <DialogTitle className="text-white font-poppins max-sm:leading-[32px] leading-[38px] mb-5 max-sm:max-w-[270px] mx-auto">
                 Download our app and explore more
               </DialogTitle>
 

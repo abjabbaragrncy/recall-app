@@ -37,9 +37,8 @@ const Footer = () => {
               aria-label="Visit our Facebook page"
             >
               <Image
-                className="rounded-lg object-contain"
                 src="/assets/SVG/facebook.svg"
-                alt="Logo"
+                alt="Facebook Logo"
                 width={24}
                 height={24}
               />
@@ -85,7 +84,7 @@ const Footer = () => {
                 Contact Us
               </p>
             </Link>
-            <Link href="/terms-and-conditions">
+            <Link href="/terms">
               <p className={`text-sm text-Inactive ${manrope.className}`}>
                 Terms & Conditions
               </p>

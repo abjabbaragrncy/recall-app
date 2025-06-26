@@ -1,53 +1,87 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import React from "react";
 
-const Card = ({ item }) => {
-  const statusInfo = {
-    "Very Risky": {
-      bgColor: "bg-[#EF5858]",
-      icon: (
-        <Image
-          src="/assets/SVG/Warning.svg"
-          alt="Very Risky Icon"
-          width={16}
-          height={16}
-        />
-      ),
-    },
-    Risky: {
-      bgColor: "bg-[#E8790A]",
-      icon: (
-        <Image
-          src="/assets/SVG/Warning.svg"
-          alt="Risky Icon"
-          width={16}
-          height={16}
-        />
-      ),
-    },
-    Neutral: {
-      bgColor: "bg-[#8D94AB]",
-      icon: (
-        <Image
-          src="/assets/SVG/Info-1.svg"
-          alt="Neutral Icon"
-          width={16}
-          height={16}
-        />
-      ),
-    },
-    Safe: {
-      bgColor: "bg-[#24965F]",
-      icon: (
-        <Image
-          src="/assets/SVG/CheckCircle.svg"
-          alt="Safe Icon"
-          width={16}
-          height={16}
-        />
-      ),
-    },
+type StatusType = "Very Risky" | "Risky" | "Neutral" | "Safe";
+
+interface Item {
+  id: string | number;
+  link: string;
+  image: string | StaticImageData;
+  name: string;
+  status: StatusType | string; // Allow string if you want to handle unknown statuses gracefully
+  reports: number;
+  date: string;
+}
+
+type CardProps = {
+  item: Item;
+};
+
+const statusInfo: Record<
+  StatusType,
+  { bgColor: string; icon: React.ReactElement }
+> = {
+  "Very Risky": {
+    bgColor: "bg-[#EF5858]",
+    icon: (
+      <Image
+        src="/assets/SVG/Warning.svg"
+        alt="Very Risky Icon"
+        width={16}
+        height={16}
+      />
+    ),
+  },
+  Risky: {
+    bgColor: "bg-[#E8790A]",
+    icon: (
+      <Image
+        src="/assets/SVG/Warning.svg"
+        alt="Risky Icon"
+        width={16}
+        height={16}
+      />
+    ),
+  },
+  Neutral: {
+    bgColor: "bg-[#8D94AB]",
+    icon: (
+      <Image
+        src="/assets/SVG/Info-1.svg"
+        alt="Neutral Icon"
+        width={16}
+        height={16}
+      />
+    ),
+  },
+  Safe: {
+    bgColor: "bg-[#24965F]",
+    icon: (
+      <Image
+        src="/assets/SVG/CheckCircle.svg"
+        alt="Safe Icon"
+        width={16}
+        height={16}
+      />
+    ),
+  },
+};
+
+const Card: React.FC<CardProps> = ({ item }) => {
+  // Use type assertion and fallback for unknown statuses
+  const info = statusInfo[item.status as StatusType] ?? {
+    bgColor: "bg-gray-400",
+    icon: (
+      <Image
+        src="/assets/SVG/Info.svg"
+        alt="Default Icon"
+        width={16}
+        height={16}
+      />
+    ),
   };
+
   return (
     <div
       key={item.id}
@@ -64,11 +98,9 @@ const Card = ({ item }) => {
             />
           </div>
           <span
-            className={`absolute top-3 left-3 text-white text-[13px] font-normal pr-1.5 pl-1 py-0.5 rounded-full flex items-center gap-1 font-poppins font ${
-              statusInfo[item.status]?.bgColor || "bg-gray-400"
-            }`}
+            className={`absolute top-3 left-3 text-white text-[13px] font-normal pr-1.5 pl-1 py-0.5 rounded-full flex items-center gap-1 font-poppins font ${info.bgColor}`}
           >
-            {statusInfo[item.status]?.icon}
+            {info.icon}
             <span>{item.status}</span>
           </span>
         </div>
@@ -82,7 +114,7 @@ const Card = ({ item }) => {
             {item.reports > 0 ? (
               <span
                 className="inline-flex items-center gap-1.5
-             text-[#E8790A] text-[15px] font-medium font-poppins leading-snug"
+               text-[#E8790A] text-[15px] font-medium font-poppins leading-snug"
               >
                 <Image
                   src="/assets/SVG/WarningDiamond.svg"
@@ -96,7 +128,7 @@ const Card = ({ item }) => {
               <span className="inline-flex items-center gap-1.5 text-Inactive text-[15px] font-medium font-poppins leading-snug">
                 <Image
                   src="/assets/SVG/Info.svg"
-                  alt="Warning Icon"
+                  alt="Info Icon"
                   width={24}
                   height={24}
                 />
@@ -108,7 +140,7 @@ const Card = ({ item }) => {
           <div className="inline-flex items-center gap-1.5 text-Inactive text-[15px] font-medium font-poppins leading-snug">
             <Image
               src="/assets/SVG/CalendarBlank.svg"
-              alt="Warning Icon"
+              alt="Calendar Icon"
               width={24}
               height={24}
             />

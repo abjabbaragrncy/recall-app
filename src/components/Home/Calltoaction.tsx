@@ -10,7 +10,7 @@ const CallToAction = () => {
             height={468}
             src="/assets/image/download_app_bg.svg"
             alt="App Preview"
-            className="mx-auto lg:absolute lg:top-[-68px] lg:left-4 md:left-0 w-[80%] md:w-[448px] h-auto z-50"
+            className="mx-auto lg:absolute lg:top-[-68px] lg:left-4 md:left-0 w-[80%] md:w-[448px] h-auto z-40"
           />
         </figure>
         {/* Right side - Text and Download Buttons */}

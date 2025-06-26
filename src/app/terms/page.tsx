@@ -1,12 +1,14 @@
+"use client";
+
 import { manrope, poppins } from "@/Font/font";
+import useMetadata from "@/hooks/useMetadata";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions | Recall Products",
-  description:
-    "Read the terms and conditions governing your use of Recall Alerts. Understand your rights, responsibilities, and the rules that ensure transparency and trust across our platform.",
-};
+const Page = () => {
+  useMetadata(
+    "Terms & Conditions | Recall Products",
+    "Read the terms and conditions governing your use of Recall Alerts. Understand your rights, responsibilities, and the rules that ensure transparency and trust across our platform."
+  );
 
-const page = () => {
   return (
     <div className={`${manrope.variable} ${poppins.variable}`}>
       <div className="relative bg-Primary pt-16 pb-32">
@@ -184,4 +186,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
