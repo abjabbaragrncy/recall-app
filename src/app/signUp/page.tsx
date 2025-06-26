@@ -4,10 +4,10 @@ import Social from "@/components/Social";
 import { useAuthContext } from "@/context/AuthProvider"; // ✅ import your context
 import { manrope, poppins } from "@/Font/font";
 import useMetadata from "@/hooks/useMetadata";
+import { Eye, EyeSlash } from "@phosphor-icons/react";
 import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { LuLockKeyhole, LuUserRound } from "react-icons/lu";
 import { TfiEmail } from "react-icons/tfi";
 
@@ -110,7 +110,11 @@ const RegisterPage = () => {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+              {showPassword ? (
+                <EyeSlash size={20} color="#8D94AB" />
+              ) : (
+                <Eye size={20} color="#8D94AB" />
+              )}
             </button>
           </fieldset>
 
