@@ -1,13 +1,13 @@
 "use client";
+import AppInstallPrompt from "@/components/AppInstallPrompt";
 import Social from "@/components/Social";
 import { useAuthContext } from "@/context/AuthProvider"; // ✅ import your context
 import { manrope, poppins } from "@/Font/font";
 import useMetadata from "@/hooks/useMetadata";
 import axios from "axios";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaApple, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { LuLockKeyhole, LuUserRound } from "react-icons/lu";
 import { TfiEmail } from "react-icons/tfi";
 
@@ -131,29 +131,7 @@ const RegisterPage = () => {
         <Social />
       </div>
 
-      {/* App Download Banner */}
-      <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 bg-white border py-4 px-6 rounded-3xl w-full max-w-4xl">
-        <p
-          className={`${poppins.className} text-[#595F71] text-center  text-sm `}
-        >
-          We recommend to use our mobile application to use all features
-        </p>
-        <div className="flex gap-4">
-          <button className="flex items-center gap-2 rounded-full px-4 py-2 bg-BlackBg text-white text-sm">
-            <FaApple />
-            <span>App Store</span>
-          </button>
-          <button className="flex items-center gap-2 rounded-full px-4 py-2 bg-BlackBg text-white text-sm">
-            <Image
-              src="/assets/SVG/google-play.svg"
-              alt="google play"
-              width={18}
-              height={18}
-            />
-            <span>Google Play</span>
-          </button>
-        </div>
-      </div>
+      <AppInstallPrompt />
     </section>
   );
 };

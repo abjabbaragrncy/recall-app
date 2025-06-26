@@ -1,15 +1,15 @@
 "use client";
 
+import AppInstallPrompt from "@/components/AppInstallPrompt";
 import Social from "@/components/Social";
 import { useAuthContext } from "@/context/AuthProvider";
 import { manrope, poppins } from "@/Font/font";
 import useMetadata from "@/hooks/useMetadata";
 import axios from "axios";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FaApple, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { LuLockKeyhole } from "react-icons/lu";
 import { TfiEmail } from "react-icons/tfi";
 
@@ -136,7 +136,7 @@ export default function LoginPage() {
       </div>
 
       {/* App Install Prompt */}
-      <div className="w-full max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 bg-white border py-4 px-6 rounded-[40px]">
+      {/* <div className="w-full max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 bg-white border py-4 px-6 rounded-[40px]">
         <h2
           className={`${poppins.className} text-[#595F71] text-center text-sm sm:text-base`}
         >
@@ -157,7 +157,8 @@ export default function LoginPage() {
             Google Play
           </button>
         </div>
-      </div>
+      </div> */}
+      <AppInstallPrompt />
     </section>
   );
 }
