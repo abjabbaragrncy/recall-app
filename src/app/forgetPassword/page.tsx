@@ -11,7 +11,7 @@ export default function ForgetPasswordPage() {
     "Set New Password | Recall Products",
     "Choose a new secure password."
   );
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
   return (

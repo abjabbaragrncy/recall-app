@@ -44,10 +44,9 @@ const Page = () => {
     "About Us | Recall Products",
     "Learn more about Recall Products and how we keep you informed about product safety alerts and recalls."
   );
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     setActiveIndex(index === activeIndex ? null : index);
   };
   return (

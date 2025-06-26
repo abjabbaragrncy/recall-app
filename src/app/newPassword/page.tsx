@@ -7,7 +7,7 @@ import { LuLockKeyhole } from "react-icons/lu";
 
 export default function SetNewPasswordPage() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
   return (

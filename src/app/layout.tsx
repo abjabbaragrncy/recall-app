@@ -1,28 +1,31 @@
+"use client";
+
 import ClientLayout from "@/components/ClientLayout";
 import Navbar from "@/components/Navbar";
-import type { Metadata } from "next";
+import { AuthProvider } from "@/context/AuthProvider";
+import useMetadata from "@/hooks/useMetadata";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "Recall Products | Stay Informed & Protected",
-  description:
-    "Your safety, peace of mind, and informed decisions are our top priorities. Stay vigilant and ahead with real-time recall alerts. Search, browse, and track recalled products to stay protected in a rapidly changing world.",
-};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useMetadata(
+    "Recall Products | Stay Informed & Protected",
+    "Your safety, peace of mind, and informed decisions are our top priorities. Stay vigilant and ahead with real-time recall alerts. Search, browse, and track recalled products to stay protected in a rapidly changing world."
+  );
   return (
     <html lang="en">
+      <meta name="color-scheme" content="light" />
+
       <body>
         <header>
           <Navbar />
         </header>
-        <ClientLayout>{children}</ClientLayout>
-        {/* <main className="pt-12">{children}</main> */}
-        {/* <Footer /> */}
+        <AuthProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </AuthProvider>
       </body>
     </html>
   );

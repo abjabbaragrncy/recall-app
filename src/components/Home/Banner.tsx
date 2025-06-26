@@ -1,16 +1,17 @@
+import { manrope, poppins } from "@/Font/font";
 import Image from "next/image";
 import SearchBox from "./SearchBox";
 
 const Banner = () => {
   return (
-    <div>
-      <div className="relative bg-Primary pt-16 max-sm:pb-24 pb-32">
+    <div className={`${manrope.variable} ${poppins.variable}`}>
+      <div className="relative bg-Primary pt-16 max-sm:pb-24 pb-32 ">
         <Image
-          width={100}
-          height={100}
-          src="/assets/SVG/web_hero_bg_person.svg"
+          width={1920}
+          height={1080}
+          src="/assets/image/web_hero_bg_person.png"
           alt=""
-          className="lg:block absolute  w-full h-full   max-sm:hidden top-0 left-0 object-cover"
+          className="lg:block absolute w-full h-full max-sm:hidden top-0 left-0 object-cover"
         />
         <div className="absolute inset-x-0 bottom-0">
           <svg
@@ -22,7 +23,7 @@ const Banner = () => {
             <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z"></path>
           </svg>
         </div>
-        <div className="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl max-sm:px-4 ">
+        <div className="mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl max-sm:px-4 font-p">
           <div className="text-center text-white max-sm:text-[20px] text-[32px] font-semibold font-poppins leading-[48px] mb-2">
             Search or Browse Products
           </div>

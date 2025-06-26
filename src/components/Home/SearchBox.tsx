@@ -5,8 +5,7 @@ import { useRef, useState } from "react";
 export default function SearchBox() {
   const [query, setQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const inputRef = useRef(null);
-
+  const inputRef = useRef<HTMLInputElement>(null);
   const suggestions = [
     { name: "Enchanted mushroom crips", reports: 24 },
     { name: "Hurley’s pretzel snacks", reports: 0 },
@@ -37,12 +36,12 @@ export default function SearchBox() {
   };
 
   return (
-    <div className="w-full max-w-[540px] mx-auto flex flex-col gap-2 px-4 relative font-poppins z-50">
+    <div className="w-full max-w-[540px] mx-auto flex flex-col gap-2 px-4 relative font-poppins z-40">
       {/* Search Box */}
-      <div className="w-full bg-white rounded-full flex items-center pl-4 pr-2 py-[6px] gap-2 shadow-md outline-2 outline-offset-[-2px] outline-[#131314] focus-within:outline-[#415ad7]">
+      <div className="w-full bg-white rounded-full flex items-center pl-4 pr-2 py-[6px] gap-2  outline-offset-[-2px]  focus-within:outline-BlackBg">
         {/* Left Typing Label */}
         {(query || showSuggestions) && (
-          <p className="text-sm text-[#131314] font-manrope whitespace-nowrap">
+          <p className="text-sm text-BlackBg font-manrope whitespace-nowrap">
             Typing <span className="text-[#415ad7]">|</span>
           </p>
         )}
@@ -56,7 +55,7 @@ export default function SearchBox() {
           onFocus={() => setShowSuggestions(true)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           placeholder="Search by product name or UPC"
-          className="flex-1 text-sm text-[#131314] font-manrope focus:outline-none bg-transparent ml-2"
+          className="flex-1 text-sm text-BlackBg font-manrope focus:outline-none bg-transparent ml-2"
         />
 
         {/* Clear (X) icon */}
@@ -92,13 +91,6 @@ export default function SearchBox() {
                 key={index}
                 className="flex items-center gap-3 px-3 py-2 hover:bg-[#f9fafb] rounded-md cursor-pointer"
               >
-                {/* <Image
-                  width={44}
-                  height={40}
-                  src="/assets/SVG/MagnifyingGlass.svg"
-                  className="w-11 h-10 rounded-md"
-                  alt={item.name}
-                /> */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="44"
@@ -112,7 +104,7 @@ export default function SearchBox() {
                   />
                 </svg>
                 <div className="flex flex-col text-sm">
-                  <span className="text-[#131314]">{item.name}</span>
+                  <span className="text-BlackBg">{item.name}</span>
                   <span className="text-[#595e70] text-[13px]">
                     {item.reports > 0
                       ? `${item.reports} reports`

@@ -10,7 +10,7 @@ export default function OTPPage() {
     "Verify OTP | Recall Products",
     "Enter the one-time code sent to your email."
   );
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
   return (

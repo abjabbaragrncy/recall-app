@@ -37,9 +37,8 @@ const Footer = () => {
               aria-label="Visit our Facebook page"
             >
               <Image
-                className="rounded-lg object-contain"
                 src="/assets/SVG/facebook.svg"
-                alt="Logo"
+                alt="Facebook Logo"
                 width={24}
                 height={24}
               />

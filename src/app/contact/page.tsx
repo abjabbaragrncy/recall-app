@@ -167,7 +167,7 @@ const Page = () => {
                 <textarea
                   id="message"
                   name="message"
-                  rows="4"
+                  rows={4}
                   placeholder="Type here"
                   className="w-full px-4 py-[11px] bg-white rounded-[30px] outline outline-[#b9becf] text-[#8c94ab] text-sm font-normal font-manrope  resize-none"
                 ></textarea>
