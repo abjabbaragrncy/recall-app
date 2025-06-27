@@ -5,13 +5,11 @@ import Social from "@/components/Social";
 import { useAuthContext } from "@/context/AuthProvider";
 import { manrope, poppins } from "@/Font/font";
 import useMetadata from "@/hooks/useMetadata";
+import { Envelope, Eye, EyeSlash, Lock } from "@phosphor-icons/react";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { LuLockKeyhole } from "react-icons/lu";
-import { TfiEmail } from "react-icons/tfi";
 
 export default function LoginPage() {
   useMetadata(
@@ -78,7 +76,7 @@ export default function LoginPage() {
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Email */}
           <fieldset className="border border-borderColor px-4 py-3 rounded-xl flex items-center gap-2">
-            <TfiEmail className="text-Inactive text-xl font-bold" />
+            <Envelope size={25} color="#8D94AB" />
             <input
               type="email"
               name="email"
@@ -92,7 +90,8 @@ export default function LoginPage() {
 
           {/* Password */}
           <fieldset className="border border-borderColor px-4 py-3 rounded-xl flex items-center gap-2">
-            <LuLockKeyhole className="text-Inactive text-xl font-bold" />
+            <Lock size={25} color="#8D94AB" />
+
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -106,7 +105,11 @@ export default function LoginPage() {
               type="button"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+              {showPassword ? (
+                <EyeSlash size={20} color="#8D94AB" />
+              ) : (
+                <Eye size={20} color="#8D94AB" />
+              )}
             </button>
           </fieldset>
 
